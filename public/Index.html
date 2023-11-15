@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Grade Master</title><!-- Title of the webpage -->
+    <link rel="stylesheet" href="styles.css"><!-- External stylesheet link -->
+    <style>
+        /* Inline CSS styles for specific page elements */
+        body {
+            background-image: url('background4.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Make the body take up the full viewport height */
+            margin: 0; /* Remove default margin to ensure full width */
+        }
+
+        .container {
+            text-align: center; /* Center the contents of the container */
+            background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent background to the container */
+            padding: 20px; /* Add some padding for spacing */
+            width: 100%; /* Set the width to 100% to cover the width of the screen */
+        }
+
+        h1, p, button {
+            font-size: 24px; /* Increase the text size */
+        }
+
+        button {
+            padding: 10px 20px; /* Increase button padding for better clickability */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Grade Master</h1>
+        </header>
+        <main>
+            <p>Select your grading system:</p>
+             <!-- Buttons to select grading systems or navigate to another page -->
+            <button onclick="setGradingSystem('NZ')">New Zealand Grading System</button>
+            <button onclick="setGradingSystem('USA')">USA Grading System</button>
+            <button onclick="goToGPAPage()">Go to GPA Calculator</button> <!-- New button to navigate to GPA.html -->
+        </main>
+    </div>
+    <script>
+        function setGradingSystem(system) {
+            localStorage.setItem('gradingSystem', system);
+            // Redirect to the GradeCal.html page
+            window.location.href = "GradeCal.html";
+        }
+
+        function goToGPAPage() {
+            // Redirect to the GPA.html page
+            window.location.href = "GPA.html";
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator (NZ)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GPA Calculator (NZ)</h1>
+        </header>
+        <main>
+            <form id="gpaCalculatorForm">
+                <div id="gradeInputs">
+                    <div class="gradeInput">
+                        <label for="course">Course Name:</label>
+                        <input type="text" class="course">
+                        <label for="grade">Select Grade:</label>
+                        <select class="grade">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D">D</option>
+                            <option value="F">F (Fail)</option>
+                        </select>
+                        <label for="credits">Enter Credits:</label>
+                        <input type="number" class="credits" min="1" required>
+                        <button type="button" onclick="removeGradeInput(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" onclick="addGradeInput()">Add Another Grade</button>
+                <button type="button" onclick="calculateCumulativeGPA()">Calculate GPA</button>
+            </form>
+            <p>Your Cumulative GPA (NZ) is: <span id="result">-</span></p>
+            
+     <!-- Add a "Back" button to return to index.html -->
+     <button onclick="goBack()">Back</button>
+    </main>
+</div>
+<script>
+    function goBack() {
+        // Redirect to the index.html page
+        window.location.href = "index.html";
+    }
+        function addGradeInput() {
+            const gradeInputsDiv = document.getElementById("gradeInputs");
+            const newGradeInputDiv = document.createElement("div");
+            newGradeInputDiv.classList.add("gradeInput");
+            newGradeInputDiv.innerHTML = `
+                <label for="course">Course Name:</label>
+                <input type="text" class="course">
+                <label>Select Grade:</label>
+                <select class="grade">
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="C-">C-</option>
+                    <option value="D">D</option>
+                    <option value="F">F (Fail)</option>
+                </select>
+                <label for="credits">Enter Credits:</label>
+                <input type="number" class="credits" min="1" required>
+                <button type="button" onclick="removeGradeInput(this)">Remove</button>
+            `;
+            gradeInputsDiv.appendChild(newGradeInputDiv);
+        }
+
+        function removeGradeInput(buttonElement) {
+            const gradeInputDiv = buttonElement.parentElement;
+            const gradeInputsDiv = document.getElementById("gradeInputs");
+            gradeInputsDiv.removeChild(gradeInputDiv);
+        }
+
+        function calculateCumulativeGPA() {
+    const gradeInputs = document.querySelectorAll(".gradeInput");
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    // Define a mapping of grades to grade points
+    const gradeToPoint = {
+        "A+": 9,
+        "A": 8,
+        "A-": 7,
+        "B+": 6,
+        "B": 5,
+        "B-": 4,
+        "C+": 3,
+        "C": 2,
+        "C-": 1,
+        "D": 0,
+        "F": 0, // Assuming F (Fail) is 0 grade points
+    };
+
+    gradeInputs.forEach((input) => {
+        const gradeSelect = input.querySelector(".grade");
+        const creditsInput = input.querySelector(".credits");
+
+        const selectedGrade = gradeSelect.value;
+        const credits = parseInt(creditsInput.value);
+
+        // Calculate the grade points for the current input based on the selected grade
+        const gradePoint = gradeToPoint[selectedGrade];
+
+        // Calculate the weighted grade points for the current input
+        const weightedGradePoints = gradePoint * credits;
+
+        totalGradePoints += weightedGradePoints;
+        totalCredits += credits;
+    });
+
+    const cumulativeGPA = totalGradePoints / totalCredits;
+
+    // Display the cumulative GPA in the "result" span
+    const resultSpan = document.getElementById("result");
+    resultSpan.textContent = cumulativeGPA.toFixed(2); // Display GPA with 2 decimal places
+}
+
+    </script>
+</body>
+</html>

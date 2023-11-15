@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Grade Master</h1>
+        </header>
+        
+        <!-- Grade Calculation Section -->
+        
+        <div id="gradeCalculationSection">
+            <h2 class="grades-summary-title">Grades Summary</h2> <!-- Title for grades summary -->
+            <div id="subjectsContainer"></div><!-- Container for subjects, dynamically filled -->
+            <div class="button-group">
+                <button type="button" id="addSubject">Add Subject</button>
+                <button type="button" id="calculateGrades">Calculate Grades</button><!-- Button to trigger grade calculation -->
+                <button type="button" id="downloadGrades">Download Grade Summary</button> <!-- Download button -->
+            </div>
+
+            <div class="overall-title">
+                <h2>Grade Master Dashboard</h2>
+            </div>
+            
+            <div id="subjectGrades">
+                <h3>Grade Information:</h3> <!-- Title for displaying individual grade information -->
+                <!-- This will display the calculated grade for each subject -->
+            </div>
+            <div id="overallGrade">
+                <h3>Overall Grade:</h3><!-- Title for displaying needed grades for goals -->
+                <!-- This area will display the predicted grades needed to achieve certain goals -->
+            </div>
+        </div>
+
+        
+    <!-- Grade Prediction Section -->    
+<div id="gradePredictionSection">
+    <h2>Predict Needed Grades</h2>
+    <div class="button-container"> <!-- Container for the button to allow centering -->
+        <button type="button" id="predictGrades">Predict Grades</button>
+    </div>
+    <div id="neededGrades">
+        <h3>Needed Grades:</h3>
+        <!-- This will display the predicted grades needed -->
+    </div>
+</div>
+
+        
+        <!-- Footer with Back to Index Button -->
+        <footer>
+            <button onclick="goBack()">Back</button><!-- Button to navigate back, likely to the main page -->
+        </footer>
+        
+    </div>
+    <script src="script.js"></script><!-- Link to external JavaScript file for interactivity -->
+</body>
+</html>

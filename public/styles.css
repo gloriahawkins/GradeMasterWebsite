@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f2;
+    background-image: url('background5.png'); /* Replace with your image path */
+    background-size: cover;
+    background-attachment: fixed;
+    color: #495057;
+}
+
+.container {
+    max-width: 1200px; /* Increased the max-width for a larger container */
+    margin: 30px auto;
+    padding: 40px; /* Increased padding for more space inside the container */
+    background: rgba(255, 255, 255, 0.95); /* Adjusted transparency for better readability */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the border-radius is applied to child elements */
+    display: flex; /* Added for flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+header {
+    background-color: #e0f7fa;
+    color: #495057;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%; /* Ensure header spans the full width of the container */
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.subject, #subjectGrades, #overallGrade, #neededGrades {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: 100%; /* Ensure these elements span the full width of the container */
+}
+
+.module {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Increase the size of input fields */
+input[type="text"], input[type="number"] {
+    padding: 10px; /* More padding for larger touch area */
+    font-size: 1rem; /* Larger text for better readability */
+    width: 100%; /* Full width inputs for a cleaner look */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin-bottom: 10px; /* Add space between inputs */
+}
+
+.subject, #subjectGrades, #overallGrade, #neededGrades {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* Style adjustments for the Grades Summary section */
+.subject {
+    /* Increase the padding inside the subject container for more space */
+    padding: 20px;
+}
+
+.module {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Increase the size of the labels for better readability */
+.subject .module label {
+    font-size: 1rem;
+    display: block; /* Make labels block to have their own line */
+    margin-bottom: 5px; /* Add some space below the label */
+}
+
+/* Adjust the layout of the module to be more spacious */
+.module {
+    padding: 15px;
+    /* Other styles remain the same */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #f6d6e4; /* Soft pink */
+    color: #495057; /* Darker text for better contrast */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #f8e1f4; /* A lighter pink on hover */
+}
+
+button:active {
+    background-color: #f6b6d2; /* A slightly darker pink for the active state */
+}
+
+
+
+
+
+.button {
+    display: block;
+    width: max-content;
+    margin: 30px auto;
+    padding: 15px 30px;
+    background-color: #ed8c89; /* Use the coral pink color for the button */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #db7c77; /* A slightly darker shade for the hover state */
+}
+
+
+
+/* Centering the Predict Grades button */
+#gradePredictionSection .button-container {
+    text-align: center; /* Centers the button */
+    margin-top: 20px; /* Adds some space above the button */
+}
+
+#gradePredictionSection .button-container button {
+    padding: 15px 30px; /* Increase padding for a larger button */
+    font-size: 1.2em; /* Optionally increase the font size */
+    width: auto; /* Auto width allows the button to size with its content */
+    display: inline-block; /* Allows the button to be centered with text-align */
+}
+
+/* Making all buttons larger */
+button {
+    padding: 15px 30px; /* Increase padding for a larger button */
+    font-size: 1.2em; /* Increase font size if desired */
+    /* Keep other styles the same */
+}
+
+
+
+
+
+
+/* Additional styles for layout and spacing */
+h2 {
+    color: #ed8c89;
+}
+
+.add-module,
+.remove-module,
+.remove-subject {
+    margin-top: 5px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .module input[type="text"],
+    .module input[type="number"] {
+        width: calc(50% - 10px);
+    }
+
+    .module button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
